@@ -1,0 +1,23 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Simple CRM</p>
+    <h1>All Customers</h1>
+    <p>Browse every customer currently stored in the CRM.</p>
+  </div>
+
+  <nav class="customer-navigation" aria-label="Customer lists">
+    <%= link_to "All Customers", root_path, class: "active" %>
+    <%= link_to "Alphabetized", customers_alphabetized_path %>
+    <%= link_to "Missing Email", customers_missing_email_path %>
+  </nav>
+</header>
+
+<section class="customer-grid">
+  <%= render @customers %>
+</section>
+
+<%# Pao Notes: %>
+<%# The index page displays every customer loaded by the index action. %>
+<%# render @customers renders the _customer partial once for each customer. %>
+<%# Rails automatically supplies each record to the partial as customer. %>
+<%# Route helpers generate the URLs for the three customer pages. %>

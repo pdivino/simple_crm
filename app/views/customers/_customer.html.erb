@@ -1,0 +1,31 @@
+<article class="customer-card">
+  <h2><%= customer.full_name %></h2>
+
+  <% if customer.image.attached? %>
+    <%= image_tag customer.image,
+                  class: "customer-image",
+                  alt: "#{customer.full_name} profile image" %>
+  <% else %>
+    <div class="customer-image customer-image-placeholder">
+      No image
+    </div>
+  <% end %>
+
+  <dl class="customer-details">
+    <dt>Phone</dt>
+    <dd><%= customer.phone_number.presence || "Not provided" %></dd>
+
+    <dt>Email</dt>
+    <dd><%= customer.email_address.presence || "Not provided" %></dd>
+
+    <dt>Notes</dt>
+    <dd><%= customer.notes.presence || "No notes" %></dd>
+  </dl>
+</article>
+
+<%# Pao Notes: %>
+<%# A partial is a reusable piece of a view. %>
+<%# The partial receives one customer through the local variable customer. %>
+<%# image_tag generates an HTML img element for an attached image. %>
+<%# attached? checks for an image before trying to display it. %>
+<%# presence returns the value when it exists; otherwise the fallback text is used. %>

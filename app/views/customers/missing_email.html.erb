@@ -1,0 +1,26 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Simple CRM</p>
+    <h1>Customers Missing Email</h1>
+    <p>These customers need an email address added to their records.</p>
+  </div>
+
+  <nav class="customer-navigation" aria-label="Customer lists">
+    <%= link_to "All Customers", root_path %>
+    <%= link_to "Alphabetized", customers_alphabetized_path %>
+    <%= link_to "Missing Email", customers_missing_email_path, class: "active" %>
+  </nav>
+</header>
+
+<section class="customer-grid">
+  <% if @customers.any? %>
+    <%= render @customers %>
+  <% else %>
+    <p class="empty-message">Every customer has an email address.</p>
+  <% end %>
+</section>
+
+<%# Pao Notes: %>
+<%# any? checks whether the missing-email query returned customers. %>
+<%# When records exist, Rails renders the _customer partial for each one. %>
+<%# Otherwise, the page displays a helpful empty-state message. %>

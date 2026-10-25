@@ -8,3 +8,158 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+:root {
+  --ink: #172033;
+  --muted: #667085;
+  --surface: #ffffff;
+  --background: #f3f6fb;
+  --primary: #3157d5;
+  --primary-dark: #243fa3;
+  --border: #dce3ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px;
+  color: var(--ink);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto 32px;
+}
+
+.page-header h1 {
+  margin: 4px 0 8px;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.page-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.eyebrow {
+  color: var(--primary) !important;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.customer-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.customer-navigation a {
+  padding: 10px 14px;
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.customer-navigation a:hover,
+.customer-navigation a.active {
+  color: white;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.customer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.customer-card {
+  overflow: hidden;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgb(23 32 51 / 8%);
+}
+
+.customer-card h2 {
+  margin: 0 0 16px;
+  font-size: 1.3rem;
+}
+
+.customer-image {
+  display: flex;
+  width: 100%;
+  height: 220px;
+  margin-bottom: 18px;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+  color: var(--muted);
+  background: #e8edf5;
+  border-radius: 10px;
+}
+
+.customer-image-placeholder {
+  border: 2px dashed #c7d0df;
+}
+
+.customer-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 12px;
+  margin: 0;
+}
+
+.customer-details dt {
+  font-weight: bold;
+}
+
+.customer-details dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--muted);
+}
+
+.empty-message {
+  padding: 32px;
+  color: var(--muted);
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 24px 16px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Pao Notes:
+   The grid automatically creates as many customer-card columns as fit.
+   auto-fit makes the layout adapt to different screen widths.
+   The media query changes the header layout on smaller screens.
+   The active class identifies the list currently being viewed.
+*/

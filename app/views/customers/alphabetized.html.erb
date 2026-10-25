@@ -1,0 +1,21 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Simple CRM</p>
+    <h1>Customers Alphabetically</h1>
+    <p>Customers ordered from A to Z by full name.</p>
+  </div>
+
+  <nav class="customer-navigation" aria-label="Customer lists">
+    <%= link_to "All Customers", root_path %>
+    <%= link_to "Alphabetized", customers_alphabetized_path, class: "active" %>
+    <%= link_to "Missing Email", customers_missing_email_path %>
+  </nav>
+</header>
+
+<section class="customer-grid">
+  <%= render @customers %>
+</section>
+
+<%# Pao Notes: %>
+<%# This view receives customers ordered by full_name from the controller. %>
+<%# It reuses the same _customer partial as the other customer pages. %>
